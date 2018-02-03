@@ -13,15 +13,16 @@ import java.lang.*;
 public class ClassStructure extends Object implements Serializable, Cloneable { // class declaration
 
     {
-        System.out.println(this.getName());  // instance initializer
+        System.out.println(this.getInstanceVariable());  // instance initializer
     }
 
     static {
-        System.out.println(ClassStructure.staticName);  // static initializer
+        System.out.println(ClassStructure.classVariable);  // static initializer
     }
 
-    private static String staticName = "Rafael"; // static field
-    private String name = staticName; // field
+    private static final String IDENTIFIERS = "must begin with letters or $ or _   subsequent chars can be numbers.";
+    private static String classVariable = "Rafael"; // static field
+    private String instanceVariable = classVariable; // field
 
     /* multiple
      * line comment
@@ -29,14 +30,15 @@ public class ClassStructure extends Object implements Serializable, Cloneable { 
     public ClassStructure() {}  // no-args constructor
 
     public static void main(String[] args) {  //method main
-        System.out.println("Hello " + new ClassStructure().getName());
+        String localVariable = "Hello";
+        System.out.println("Hello " + new ClassStructure().getInstanceVariable());
     }
 
-    public String getName() {
-        return name;
+    public String getInstanceVariable() {
+        return instanceVariable;
     } // getter method
 
-    public void setName(String name) {
-        this.name = name;
+    public void setInstanceVariable(String instanceVariable) {
+        this.instanceVariable = instanceVariable;
     } // setter method
 }
