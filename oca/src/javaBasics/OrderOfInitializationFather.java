@@ -7,7 +7,7 @@ package javaBasics;
  * 4- The constructor
  *
  * */
-public class OrderOfInitialization extends OrderOfInitializationFather {
+public class OrderOfInitializationFather {
 
     static {
 //        System.out.println("var primitive static = " + varPrimitiveStaticInitialized); usage of a variable not declared yet.
@@ -64,7 +64,7 @@ public class OrderOfInitialization extends OrderOfInitializationFather {
         System.out.println("var class static = " + varClassStaticInitialized);
     }
 
-    public OrderOfInitialization() {
+    public OrderOfInitializationFather() {
         super();
         System.out.println("The constructor run after all.");
 
@@ -89,8 +89,8 @@ public class OrderOfInitialization extends OrderOfInitializationFather {
     }
 
     public static void main(String[] args) {
-        new OrderOfInitialization();
-        new OrderOfInitialization(); //static initializer don't run twice.
+        new OrderOfInitializationFather();
+        new OrderOfInitializationFather(); //static initializer don't run twice.
     }
 
 }
